@@ -5,6 +5,7 @@ import backup from './../Images/BackupSlide.png'
 
 function AboutUs(){
 
+    /* Website Code */
     return(
         <div className="aboutus">
             <img src={slide} alt="Slide1"/>;

@@ -4,7 +4,7 @@ import '../App.css';
 import resultGraph from "./../Images/graph.jpeg";
 
 
-/* Webpage where we imput Longitude and Latitude and enable the Website to call the python backend via flask. After the backend performance of the machine learning model, it return a value which will be shown on the slide */
+/* Webpage where we imput Longitude and Latitude and enable the Website to call the python backend via flask. After the backend runs the machine learning model, it return a value which will be shown on the page */
 const Prediction = () => {
 
   /* Defining variables to iterativly load the page */  
@@ -15,14 +15,15 @@ const Prediction = () => {
   /* Defining variables to store the Output */
   const [predResult, setPredResult] = useState();
 
-    /* Function which is called when User hits predict button. Calls run Model Function which calls the Machine Learning */
+    /* Function which is called when user hits predict button. Calls run Model Function which calls the Machine Learning */
     const handlePrediction = async () => {
     
     setIsPending(1);
 
-    /** Call Python Model API */
+    /* Function which calls Python Model API */
     runMLModel();
-
+    
+    /* Returning Print Statements */
     await sleep(1000);
     const newPrediction = {title: "1. Collecting weather data for location", id: 1};
     setPrediction(prediction => [newPrediction]);
@@ -50,7 +51,7 @@ const Prediction = () => {
     return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    /* Function which calls the Python Backend and return the Value after the API returned the respective value */
+    /* Function which calls the Python Backend and return the value after the API returned the respective value */
     async function runMLModel (){
         var long = document.getElementById("long").value;
         var lat = document.getElementById("lat").value;
@@ -66,6 +67,7 @@ const Prediction = () => {
         console.log("Right before sending");
         request.send()
 
+        /* Process answer from backend */
         request.onreadystatechange = () => {
             console.log("Check if Statement");
             if (request.readyState == 4 && request.status == 200) {
@@ -77,6 +79,7 @@ const Prediction = () => {
         }
     }
 
+/* Website code */
   return (
     <div className="Prediction">
         <div className="InputFields">

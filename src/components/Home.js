@@ -4,6 +4,7 @@ import Background from './../Images/background.png';
 
 function Home(){
 
+    /* Website Code */
     return(
         <div className="home">
             <h1> Welcome to Sunshine Avenue </h1>

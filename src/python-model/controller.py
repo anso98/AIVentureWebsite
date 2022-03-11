@@ -1,5 +1,4 @@
 import json
-from MLmodel import *
 from flask import Flask, render_template
 import torch.nn.functional as F
 import torch.nn as nn
@@ -37,8 +36,7 @@ if __name__ == "__main__":
     controller.run(debug=True)
 
 
-# FROM HERE THE NEURALNETWORK CODE 
-# WE ARE CALLING DEMO(lat, long)
+# ----- From here we are in our Machine Learning Function and call DEMO ----#
 
 # Parameters used in model training (for hyperparameter search)
 class Parameters:
@@ -310,6 +308,8 @@ def train():
 # Function to demonstrate models prediction capabilities (used for website)
 def demo(lat, long):
     # Data preparation
+    lat = float(lat)
+    long = float(long)
     output_label = "SolarEnergy"
     data_predict = pd.read_csv("weather_and_power_sites_ElmOnly.csv")
     data_predict = data_predict[data_predict.lat == lat]
