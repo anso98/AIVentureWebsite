@@ -15,6 +15,8 @@ To start the backend, type into the terminal: npm run startFlask.
 To start the frontend, type in the terminal: npm run start
 To start both at the same time, type: npm run startNEW
 
+Please note: The website we are creating to demonstrate our project currently only works with one location, as we have not purchased any other data (which is available but not free). To try the website, please use the following latitude: 51.4 and longitude -0.3: 
+
 # Frontend explanations
 React is an open source framework that allows you to write a website in Javascript and css.
 
